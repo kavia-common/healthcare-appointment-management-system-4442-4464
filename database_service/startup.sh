@@ -137,3 +137,9 @@ echo "$(cat db_connection.txt)"
 echo ""
 echo "MySQL is running in the background."
 echo "You can now start your application."
+
+# Make init helper executable if present
+if [ -f "$(dirname "$0")/init_schema_via_cli.sh" ]; then
+    chmod +x "$(dirname "$0")/init_schema_via_cli.sh"
+    echo "Tip: Run ./init_schema_via_cli.sh to re-apply schema and seeds."
+fi
